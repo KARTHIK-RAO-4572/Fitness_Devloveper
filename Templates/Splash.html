@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>Welcome!!</title>
+        <link rel="stylesheet" href="/static/splash.css">
+    </head>
+    <body>
+        <div class="intro">
+            <h1 class="logo-header">
+            </span><span class="logo">Fitness</span>&nbsp&nbsp<span class="logo">Dev-</span><span class="logo">&#128151-</span><span class="logo">Per</span>
+            </h1>
+        </div>
+        <div class="landing">
+            <script type="text/JavaScript">
+                function Redirect() {
+               window.location = "sign";
+                }
+                setTimeout(function() {
+               Redirect();
+                }, 3300);
+               </script>
+        </div>
+        <script>
+            let intro=document.querySelector('.intro');
+            let logo=document.querySelector('.logo-header'); 
+            let logoSpan=document.querySelectorAll('.logo');
+            window.addEventListener('DOMContentLoaded', ()=>{
+                setTimeout(()=>{
+                    logoSpan.forEach((span, idx)=>{
+                        setTimeout(()=>{
+                            span.classList.add('active');
+                        }, (idx+1)* 400)
+                    });
+                    
+                    setTimeout(()=>{
+                        logoSpan.forEach((span, idx)=>{
+                            
+                            setTimeout(()=>{
+                                span.classlist.remove('active');
+                                span.classList.add('fade');
+                            }, (idx+1)*50) 
+                        })
+                    },2000);
+
+                    setTimeout(()=>{
+                        intro.style.top='-100vh';
+                    },2300)
+                })
+            })
+        </script>
+    </body>
+</html>
