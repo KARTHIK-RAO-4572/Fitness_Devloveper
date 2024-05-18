@@ -9,6 +9,8 @@
     ></script>
     <link rel="stylesheet" href="/static/landing.css" />
     <title>Sign in & Sign up Form</title>
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon"/>
+
     
   </head>
   <body>
@@ -29,7 +31,7 @@
             </div>
             <input type="submit" value="Login" class="btn solid" />
           </form>
-          <form action="signup" class="sign-up-form" method="post">
+          <form action="verify-email" class="sign-up-form" method="post">
             {%csrf_token%}
             <h2 class="title">Sign up</h2>
             <div class="input-field">

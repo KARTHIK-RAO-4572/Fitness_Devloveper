@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon"/>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/home.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="images/logo.png" class="logo">    
+            <ul>
+                <li><a href="http://localhost:8000/home">Home</a></li>
+                <li><a href="http://localhost:8000/home/exercise">Exercises</a></li>
+                <li><a href="http://localhost:8000/home/dashboard">Dashboard</a></li>
+                <li><a href="http://localhost:8000/home/bmi">BMI Calculator</a></li>
+            </ul>
+            <div>
+                <a href="http://localhost:8000/home/profile" class="prof-btn"><i class="fa-solid fa-user"></i>&nbsp&nbspProfile</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- carousel -->
+    <div class="carousel">
+        <!-- list item -->
+        <div class="list">
+            <div class="item">
+                <img src="/static/img1.jpg">
+                <div class="content">
+                    
+                    <div class="title">Fitness</div>
+                    <div class="topic">Dev-&#128151-Per</div>
+                    <div class="des">
+                        Your body is your weapon. Keep it Strong.
+                    </div>
+                    <div class="buttons">
+                        <button>View More</button>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="/static/img2.jpg">
+                <div class="content">
+                    
+                    <div class="title">Fitness</div>
+                    <div class="topic">Dev-&#128151-Per</div>
+                    <div class="des">
+                        The real workout starts when you want to stop.
+                    </div>
+                    <div class="buttons">
+                        <button>View More</button>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="/static/img3.jpg">
+                <div class="content">
+                    
+                    <div class="title">Fitness</div>
+                    <div class="topic">Dev-&#128151-Per</div>
+                    <div class="des">
+                        Excuses don't burn calories.
+                    </div>
+                    <div class="buttons">
+                        <button>View More</button>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="/static/img4.jpg">
+                <div class="content">
+                    
+                    <div class="title">Fitness</div>
+                    <div class="topic">Dev-&#128151-Per</div>
+                    <div class="des">
+                        The body achieves what the mind believes.
+                    </div>
+                    <div class="buttons">
+                        <button>View More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- list thumnail -->
+        <div class="thumbnail">
+            <div class="item">
+                <img src="/static/img1.jpg">
+                <div class="content">
+                    <div class="title">
+                        Name Slider
+                    </div>
+                    <div class="description">
+                        Description
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="/static/img2.jpg">
+                <div class="content">
+                    <div class="title">
+                        Name Slider
+                    </div>
+                    <div class="description">
+                        Description
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="/static/img3.jpg">
+                <div class="content">
+                    <div class="title">
+                        Name Slider
+                    </div>
+                    <div class="description">
+                        Description
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="/static/img4.jpg">
+                <div class="content">
+                    <div class="title">
+                        Name Slider
+                    </div>
+                    <div class="description">
+                        Description
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- next prev -->
+
+        <div class="arrows">
+            <button id="prev"><</button>
+            <button id="next">></button>
+        </div>
+        <!-- time running -->
+        <div class="time"></div>
+    </div>
+
+    <script>
+        //step 1: get DOM
+let nextDom = document.getElementById('next');
+let prevDom = document.getElementById('prev');
+
+let carouselDom = document.querySelector('.carousel');
+let SliderDom = carouselDom.querySelector('.carousel .list');
+let thumbnailBorderDom = document.querySelector('.carousel .thumbnail');
+let thumbnailItemsDom = thumbnailBorderDom.querySelectorAll('.item');
+let timeDom = document.querySelector('.carousel .time');
+
+thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
+let timeRunning = 3000;
+let timeAutoNext = 7000;
+
+nextDom.onclick = function(){
+    showSlider('next');    
+}
+
+prevDom.onclick = function(){
+    showSlider('prev');    
+}
+let runTimeOut;
+let runNextAuto = setTimeout(() => {
+    next.click();
+}, timeAutoNext)
+function showSlider(type){
+    let  SliderItemsDom = SliderDom.querySelectorAll('.carousel .list .item');
+    let thumbnailItemsDom = document.querySelectorAll('.carousel .thumbnail .item');
+    
+    if(type === 'next'){
+        SliderDom.appendChild(SliderItemsDom[0]);
+        thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
+        carouselDom.classList.add('next');
+    }else{
+        SliderDom.prepend(SliderItemsDom[SliderItemsDom.length - 1]);
+        thumbnailBorderDom.prepend(thumbnailItemsDom[thumbnailItemsDom.length - 1]);
+        carouselDom.classList.add('prev');
+    }
+    clearTimeout(runTimeOut);
+    runTimeOut = setTimeout(() => {
+        carouselDom.classList.remove('next');
+        carouselDom.classList.remove('prev');
+    }, timeRunning);
+
+    clearTimeout(runNextAuto);
+    runNextAuto = setTimeout(() => {
+        next.click();
+    }, timeAutoNext)
+}
+    </script>
+</body>
+</html>

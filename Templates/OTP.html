@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OTP</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Foldit:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/otp.css">
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon"/>
+
+
+  </head>
+  <style>
+    
+  </style>
+  <body>
+    <div class="center">
+      <form action="/auth/signup" method="post">
+        {%csrf_token%}
+        <div class="icon">
+          <span class="material-icons">rocket</span>
+        </div>
+        <div class="head">
+          <div class="title">Please check your email</div>
+          <div class="subtitle">We've sent a code to {{email}}</div>
+        </div>
+        <span class="input-fields">
+          <span class="inputs">
+            <input
+              type="text"
+              class="input"
+              required
+              pattern="[0-9]*"
+              maxlength="1"
+              name ="one"
+            />
+            <input
+              type="text"
+              class="input"
+              required
+              pattern="[0-9]*"
+              maxlength="1"
+              name = "two"
+            />
+            <input
+              type="text"
+              class="input"
+              required
+              pattern="[0-9]*"
+              maxlength="1"
+              name = "three"
+            />
+            <input
+              type="text"
+              class="input"
+              required
+              pattern="[0-9]*"
+              maxlength="1"
+              name = "four"
+            />
+            
+          </span>
+          <div class="timer">
+            Didn't recieve code
+            <button type="button" id="resend">Click to Resend</button>
+            <span class="time"></span>
+          </div>
+          <p id="code"hidden>{{code}}</p>
+        
+        </span>
+        <button type="submit" class="btn">Submit</button>
+        
+        <div class="status" id="status">
+          <span class="material-icons"> done_outlined </span>
+          <div class="title success">Verification Successful!</div>
+          <br>
+          <div class="subtitle success">Your account is created Succesfully!</div>
+          <br>
+          <div class="subtitle success" id="timer"></div>
+        </div>
+      </form>
+    </div>
+    <script>
+      function timer(n) {
+        document.getElementById("resend").disabled = true;
+        const interval = setInterval(() => {
+          if (n == 0) {
+            clearInterval(interval);
+            document.getElementById("resend").disabled = false;
+          }
+          document.querySelector(".time").innerHTML = n;
+          n = n - 1;
+        }, 1000);
+      }
+      timer(30);
+      document.getElementById("resend").onclick = function () {
+        timer(30);
+      };
+
+      let inputs = document.querySelectorAll(".input");
+      inputs.forEach((input) => {
+        input.addEventListener("keyup", (e) => {
+          let key = e.key;
+          if (Number.isInteger(Number(key))) {
+            if (input.nextElementSibling) {
+              input.nextElementSibling.focus();
+            }
+          }
+        });
+
+        input.addEventListener("keydown", (e) => {
+          let key = e.key;
+          if (input.value == "" && key === "Backspace") {
+            if (input.previousElementSibling) {
+              input.previousElementSibling.focus();
+            }
+          }
+        });
+      });
+
+      if(document.getElementById("code").innerHTML==1) {
+        document.getElementById("status").style.width = "100%";
+        var countdownTime = 5;
+        function updateTimer() {
+            var timerElement = document.getElementById("timer");
+
+            if (countdownTime >= 0) {
+                timerElement.textContent = countdownTime;
+                countdownTime--;
+
+                setTimeout(updateTimer, 1000);
+            } else {
+               
+                window.location.href = "http://127.0.0.1:8000/auth"; 
+            }
+        }
+      };
+      
+
+        
+        window.onload = updateTimer;
+    </script>
+  </body>
+</html>
