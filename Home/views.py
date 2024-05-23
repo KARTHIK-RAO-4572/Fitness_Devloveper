@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse, StreamingHttpResponse
 from django.views.decorators import gzip
-from . import Pose_Detection as pd 
+# from . import Pose_Detection as pd 
+from .import Detect_Pose as dp
 # Home Page
 def returnHomePage(request):
     user = request.session["email"]
@@ -36,9 +37,11 @@ def returnProfilePage(request):
 
 # Exercises Start
 @gzip.gzip_page
-def Home(request):
+def Exercises(request):
+    code = request.GET.get('code')
+    print(":::CODE:::"+code)
     try:
-        cam = pd.VideoCamera()
-        return StreamingHttpResponse(pd.gen(cam), content_type="multipart/x-mixed-replace;boundary=frame")
+        cam = dp.VideoCamera()
+        return StreamingHttpResponse(dp.gen(cam, code), content_type="multipart/x-mixed-replace;boundary=frame")
     except:
         return HttpResponse("Sorry! An Unexpected Error Occured...")

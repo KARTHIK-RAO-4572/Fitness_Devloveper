@@ -7,7 +7,8 @@ class generate_otp:
     def send_otp(self,receiver):
         try:
           OTP=random.randint(1000,9999)
-          content='''Greetings to You !!\nDear user, we received a request for account creation with your email in Fitness Dev-Love-Per Web application\n 
+          content='''Subject:Verification Code For Account Creation
+          Greetings to You !!\nDear user, we received a request for account creation with your email in Fitness Dev-Love-Per Web application\n 
           Your Email Verification code is '''+str(OTP)+'''\n\nIf this action is not initiated by you, you can safely discard this email'''
           server=smtplib.SMTP('smtp.gmail.com',587)
           server.starttls()

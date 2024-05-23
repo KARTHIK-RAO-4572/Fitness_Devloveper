@@ -8,5 +8,7 @@ urlpatterns = [
     path('exercise', views.returnExercisesPage, name="Exercise Page"),
     path('profile', views.returnProfilePage, name="Profile Page"),
     path('bmi', views.returnBMIPage, name="BMI Page"),
-    path('dummy', opencv.Home, name="Dummy")
+    # path('dummy', opencv.Home, name="Dummy"),
+    path('exer', views.Exercises, name="Dummy")
+
 ]
