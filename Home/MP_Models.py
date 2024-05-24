@@ -220,7 +220,7 @@ def squat(frame):
             # Rep data
         cv.putText(image, 'SQUAT', (15,12), 
                         cv.FONT_HERSHEY_SIMPLEX, 0.5, (255,255,255), 1, cv.LINE_AA)
-        cv.putText(image, str(squat), 
+        cv.putText(image, str(squat_counter), 
                         (30,60), 
                         cv.FONT_HERSHEY_SIMPLEX, 2, (255,255,255), 2, cv.LINE_AA)
         

@@ -62,6 +62,17 @@ def changePassword(request):
 @gzip.gzip_page
 def bicepCurls(request):
     code = 1
+    obj1 = pyttsx3.init()
+    obj1.setProperty('voice', 'en-UK')
+    obj1.setProperty("rate", 155)
+    obj1.say("You now Chose Bicep Curls!")
+    obj1.say("Consistently performing the bicep curl will help you build strength in the upper arm and learn to use your arm muscles correctly, bracing with your core muscles.")
+    obj1.say("Come on. Lets start the exercise in")
+    obj1.say("three")
+    obj1.say("two")
+    obj1.say("one")
+    obj1.say("Go")
+    obj1.runAndWait()
     try:
         cam = dp.VideoCamera()
         ans = dp.gen(cam,code)
@@ -72,6 +83,21 @@ def bicepCurls(request):
 @gzip.gzip_page
 def shoulderPress(request):
     code = 2
+    obj1 = pyttsx3.init()
+    obj1.setProperty('voice', 'en-UK')
+    obj1.setProperty("rate", 155)
+    obj1.say("You now chose Shoulder press!")
+    obj1.say("Shoulder press targets your shoulders, triceps, and upper back muscles, providing a full upper body workout. ")
+    obj1.say("It mainly increases the muscle mass, improved posture and shoulder strength & stability.")
+    obj1.say("Come on. Lets start the exercise in")
+    obj1.say("three")
+    obj1.say("two")
+    obj1.say("one")
+    obj1.say("Go")
+
+
+    obj1.runAndWait()
+    
     try:
         cam = dp.VideoCamera()
         ans = dp.gen(cam,code)
@@ -82,6 +108,17 @@ def shoulderPress(request):
 @gzip.gzip_page
 def squat(request):
     code = 3
+    obj1 = pyttsx3.init()
+    obj1.setProperty('voice', 'en-UK')
+    obj1.setProperty("rate", 155)
+    obj1.say("You now chose Squatss!")
+    obj1.say("Squats are a functional exercise that can boost your calorie burn, help prevent injuries, strengthen your core, and improve your balance and posture.")
+    obj1.say("Come on. Lets start the exercise in")
+    obj1.say("three")
+    obj1.say("two")
+    obj1.say("one")
+    obj1.say("Go")
+    obj1.runAndWait()
     try:
         cam = dp.VideoCamera()
         ans = dp.gen(cam,code)
