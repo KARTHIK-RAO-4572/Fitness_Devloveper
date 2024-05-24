@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Start Exercise</title>
+    <link rel="stylesheet" href="/static/integrated.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="/static/FITNESS.png" class="logo">    
+            <ul>
+                <li><a href="{{root_path}}/home">Home</a></li>
+                <li><a href="{{root_path}}/home/exercise">Exercises</a></li>
+                <li><a href="{{root_path}}/home/dashboard">Dashboard</a></li>
+                <li><a href="{{root_path}}/home/bmi">BMI Calculator</a></li>
+            </ul>
+            <div>
+                <a href="{{root_path}}/home/profile" class="prof-btn"><i class="fa-solid fa-user"></i>&nbsp&nbspProfile</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="card" style="--clr: #ee7314;">    
+            {% if code == 1 %}
+            <div class="imgBx">
+                <img src="{%url 'bicep-curls'%}">
+            </div>   
+            <div class="content">
+                <h2>Bicep Curls</h2>
+            </div>   
+            {% endif %} 
+
+            {% if code == 2 %}
+            <div class="imgBx">
+                <img src="{%url 'shoulder-press'%}">
+            </div>   
+            <div class="content">
+                <h2>Shoulder Press</h2>
+            </div>   
+            {% endif %} 
+            {% if code == 3 %}
+            <div class="imgBx">
+                <img src="{%url 'squat'%}">
+            </div>   
+            <div class="content">
+                <h2>Squats</h2>
+            </div>   
+            {% endif %} 
+        </div>
+    </div>    
+  
+</body>
+</html>

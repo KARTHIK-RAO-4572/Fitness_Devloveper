@@ -73,7 +73,7 @@
           </span>
           <div class="timer">
             Didn't recieve code
-            <button type="button" id="resend">Click to Resend</button>
+            <a href="{{root_path}}/auth/"><button type="button" id="resend">Click to Resend</button></a>
             <span class="time"></span>
           </div>
           <p id="code"hidden>{{code}}</p>
@@ -142,7 +142,7 @@
                 setTimeout(updateTimer, 1000);
             } else {
                
-                window.location.href = "http://127.0.0.1:8000/auth"; 
+                window.location.href = "{{root_path}}/auth"; 
             }
         }
       };
@@ -150,6 +150,7 @@
 
         
         window.onload = updateTimer;
+     
     </script>
   </body>
 </html>

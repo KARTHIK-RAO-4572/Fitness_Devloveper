@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Document</title>
+    <title>Fitness Devloveper</title>
     <link rel="stylesheet" href="/static/home.css">
     <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
 <script src="https://mediafiles.botpress.cloud/aafaf4f3-31f3-42a0-a1ff-4b66bcd93475/webchat/config.js" defer></script>
@@ -18,13 +18,13 @@
         <nav>
             <img src="/static/FITNESS.png" class="logo">    
             <ul>
-                <li><a href="http://localhost:8000/home">Home</a></li>
-                <li><a href="http://localhost:8000/home/exercise">Exercises</a></li>
-                <li><a href="http://localhost:8000/home/dashboard">Dashboard</a></li>
-                <li><a href="http://localhost:8000/home/bmi">BMI Calculator</a></li>
+                <li><a href="{{root_path}}/home">Home</a></li>
+                <li><a href="{{root_path}}/home/exercise">Exercises</a></li>
+                <li><a href="{{root_path}}/home/dashboard">Dashboard</a></li>
+                <li><a href="{{root_path}}/home/bmi">BMI Calculator</a></li>
             </ul>
             <div>
-                <a href="http://localhost:8000/home/profile" class="prof-btn"><i class="fa-solid fa-user"></i>&nbsp&nbspProfile</a>
+                <a href="{{root_path}}/home/profile" class="prof-btn"><i class="fa-solid fa-user"></i>&nbsp&nbspProfile</a>
             </div>
         </nav>
     </header>

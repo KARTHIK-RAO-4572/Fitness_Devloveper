@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseRedirect
 from . import models
 from . import basepackage as bp
-
+import index
 # Reference Class
 class Reference():
    OTP = None
@@ -30,8 +30,6 @@ def Signin(request):
          result = models.User_Data.objects.get(email=entered_email)
          actual_password = result.password
          if(actual_password==entered_password):
-            # obj = bp.generate_otp()
-            # obj.send_otp('21eg106b26@anurag.edu.in')
             request.session['isAuthenticated'] = True
             request.session['email'] = entered_email
             return HttpResponseRedirect('/home')
@@ -51,11 +49,18 @@ def verifyEmail(request):
       Reference.phone = request.POST.get('phone')
       obj = bp.generate_otp()
       try:
-         Reference.OTP = obj.send_otp(Reference.email)
-         return render(request, 'OTP.html',{'email':Reference.email,'code':0})
-      except Exception as e:
-         print("::::Exception::::"+str(e))
-         return HttpResponse("Sorry, Unexpected Error has Occured!!")
+         result = models.User_Data.objects.get(email=Reference.email)
+         return HttpResponse("User Already Exists!!")
+      except models.User_Data.DoesNotExist:
+         try:
+          Reference.OTP = obj.send_otp(Reference.email)
+          print(Reference.OTP)
+          if(Reference.OTP==1):
+            return HttpResponse("Sorry, Unexpected Error has Occured!!")
+          return render(request, 'OTP.html',{'email':Reference.email,'code':0})
+         except Exception as e:
+          print("::::Exception::::"+str(e))
+          return HttpResponse("Sorry, Unexpected Error has Occured!!")
    else:
       return HttpResponse(":::Unauthorized Access is Denied:::")
 
@@ -72,7 +77,7 @@ def Signup(request):
          try:
           row = models.User_Data(username=Reference.username, password=Reference.password, email=Reference.email, phone=Reference.phone) 
           row.save()
-          return render(request, 'OTP.html', {'email':Reference.email, 'code':1})
+          return render(request, 'OTP.html', {'email':Reference.email, 'code':1,'root_path':index.Root_path})
          except Exception as e :
            print(":::Exception:::"+str(e))
            return HttpResponse("Sorry, Unexpected Error has Occurred!! Please Try Again")

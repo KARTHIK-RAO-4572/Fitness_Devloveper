@@ -1,0 +1,154 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #00a1a3;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.signout-btn {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.profile-pic-section {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#upload-pic {
+    display: block;
+    margin: 10px auto;
+    display: none;
+}
+
+.edit-profile-btn {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.tab-link {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    flex: 1;
+    text-align: center;
+}
+
+.tab-link:not(:last-child) {
+    margin-right: 10px;
+}
+
+.tab-link.active {
+    background-color: #2980b9;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.editable-field {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.edit-input {
+    display: none;
+    width: calc(100% - 80px);
+    margin-right: 10px;
+}
+
+.save-profile-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1em;
+    display: none;
+}
+
+.password-section h2 {
+    font-size: 1.2em;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.save-password-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.save-profile-btn:hover, .save-password-btn:hover, .signout-btn:hover, .edit-profile-btn:hover, .tab-link:hover {
+    background-color: #2980b9;
+}

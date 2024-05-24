@@ -1,5 +1,165 @@
-<link rel="icon" href="/static/favicon.ico" type="image/x-icon"/>
-<script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
-<script src="https://mediafiles.botpress.cloud/aafaf4f3-31f3-42a0-a1ff-4b66bcd93475/webchat/config.js" defer></script>
-<link rel="stylesheet" href="https://webchat-styler-css.botpress.app/prod/bd3af707-a3d0-430f-a97a-acedc5ad93d8/v34612/style.css">
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon"/>
+    <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+    <script src="https://mediafiles.botpress.cloud/aafaf4f3-31f3-42a0-a1ff-4b66bcd93475/webchat/config.js" defer></script>
+    <link rel="stylesheet" href="https://webchat-styler-css.botpress.app/prod/bd3af707-a3d0-430f-a97a-acedc5ad93d8/v34612/style.css">
+
+
+    <link rel="stylesheet" href="/static/Profile.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="/static/FITNESS.png" class="logo">    
+            <ul>
+                <li><a href="{{root_path}}/home">Home</a></li>
+                <li><a href="{{root_path}}/home/exercise">Exercises</a></li>
+                <li><a href="{{root_path}}/home/dashboard">Dashboard</a></li>
+                <li><a href="{{root_path}}/home/bmi">BMI Calculator</a></li>
+            </ul>
+            <div>
+                <a href="{{root_path}}/home/profile" class="prof-btn"><i class="fa-solid fa-user"></i>&nbsp&nbspProfile</a>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <header>
+            <h1>Profile Settings</h1>
+            <button class="signout-btn">Sign Out</button>
+        </header>
+        <div id="pqrs">
+            <div class="profile-pic-section">
+                <img src="default-avatar.png" alt="Profile Picture" id="profile-pic">
+                <input type="file" id="upload-pic" accept="image/*">
+            </div>
+            <button id="edit-profile-btn" class="edit-profile-btn">Edit Profile</button>
+            <nav class="tabs">
+                <button class="tab-link active" data-tab="general-info">General Info</button>
+                <button class="tab-link" data-tab="change-password" id="abcd">Change Password</button>
+            </nav>
+        </div>
+        
+        <div id="general-info" class="tab-content active">
+            <form id="profile-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <div class="editable-field">
+                        <span id="display-username">{{username}}</span>
+                        <input type="text" id="edit-username" class="edit-input">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <div class="editable-field">
+                        <span id="display-email">{{email}}</span>
+                        <input type="email" id="edit-email" class="edit-input">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <div class="editable-field">
+                        <span id="display-phone">{{phone}}</span>
+                        <input type="tel" id="edit-phone" class="edit-input">
+                    </div>
+                </div>
+                <button type="button" class="save-profile-btn">Save Changes</button>
+            </form>
+        </div>
+        <div id="change-password" class="tab-content">
+            <form id="password-form" method="post" action="{{root_path}}/home/change-password">
+                <div class="form-group">
+                    <label for="old-password">Old Password</label><input type="password" name="old-password" id="old-password" required>
+                    
+                </div>
+                <div class="form-group">
+                    <label for="new-password">New Password</label>
+                    <input type="password" id="new-password"  required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" name="new-password" required>
+                </div>
+                <button type="submit" class="save-password-btn">Save Changes</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        
+
+document.getElementById('edit-profile-btn').addEventListener('click', () => {
+    document.querySelectorAll('.edit-input').forEach(input => {
+        input.style.display = 'inline-block';
+        input.previousElementSibling.style.display = 'none';
+    });
+    document.getElementById('upload-pic').style.display = 'block';
+    document.querySelector('.save-profile-btn').style.display = 'block';
+    document.getElementById('edit-profile-btn').style.display = 'none';
+    
+});
+
+document.querySelector('.save-profile-btn').addEventListener('click', () => {
+    document.querySelectorAll('.edit-input').forEach(input => {
+        input.style.display = 'none';
+        input.previousElementSibling.style.display = 'inline';
+        input.previousElementSibling.textContent = input.value;
+    });
+    document.getElementById('upload-pic').style.display = 'none';
+    document.querySelector('.save-profile-btn').style.display = 'none';
+    document.getElementById('edit-profile-btn').style.display = 'block';
+    alert('Profile updated successfully!');
+});
+
+document.getElementById('upload-pic').addEventListener('change', function (e) {
+    const file = e.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            document.getElementById('profile-pic').src = e.target.result;
+        }
+        reader.readAsDataURL(file);
+    }
+});
+
+document.querySelectorAll('.tab-link').forEach(button => {
+    button.addEventListener('click', () => {
+        document.querySelectorAll('.tab-link').forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        
+        document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+        document.getElementById(button.dataset.tab).classList.add('active');
+    });
+});
+
+document.getElementById('password-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const oldPassword = document.getElementById('old-password').value;
+    const newPassword = document.getElementById('new-password').value;
+    const confirmPassword = document.getElementById('confirm-password').value;
+
+    if (newPassword !== confirmPassword) {
+        alert('New passwords do not match!');
+        return;
+    }
+
+    alert('Password changed successfully!');
+    
+    document.getElementById('old-password').value = '';
+    document.getElementById('new-password').value = '';
+    document.getElementById('confirm-password').value = '';
+});
+
+document.querySelector('.signout-btn').addEventListener('click', function () {
+    alert('Signed out successfully!');
+    window.location.href="{{root_path}}/home/signout";
+    // Redirect to sign-in page or perform other sign-out operations
+});
+</script>
+</body>
+</html>

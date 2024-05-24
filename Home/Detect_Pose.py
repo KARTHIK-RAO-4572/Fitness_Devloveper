@@ -30,22 +30,22 @@ class VideoCamera(object):
     def get_frame(self,code):
             code = int(code)
             print(code)
-            image,rcount,lcount = MP_Models.bicepCurls(self.frame)
+            image,value= MP_Models.bicepCurls(self.frame)
             if(code==1):
-                 image = MP_Models.bicepCurls(self.frame)
+                 image, value = MP_Models.bicepCurls(self.frame)
                  print("Bicep")
             elif(code==2):
-                 image = MP_Models.shoulderPress(self.frame)
+                 image, value = MP_Models.shoulderPress(self.frame)
                  print("SHoulder")
             elif(code==3):
-                 image = MP_Models.squat(self.frame) 
+                 image, value = MP_Models.squat(self.frame) 
                  print("Squat")
             print("______")
             print(image.shape[1],image.shape[0])
             print("______")
        
             _, jpeg = cv.imencode('.jpg', image)
-            return jpeg.tobytes()
+            return jpeg.tobytes(), value
 
     def update(self):
         while True:
@@ -54,7 +54,7 @@ class VideoCamera(object):
 #Generate Feed 
 def gen(camera, code): 
     while True:
-        frame = camera.get_frame(code)
+        frame, value = camera.get_frame(code)
         yield (b'--frame\r\n'
             b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
         

@@ -1,1 +1,71 @@
-<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Exercise</title>
+    <link rel="stylesheet" href="/static/exercise.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="/static/FITNESS.png" class="logo">    
+            <ul>
+                <li><a href="{{root_path}}/home">Home</a></li>
+                <li><a href="{{root_path}}/home/exercise">Exercises</a></li>
+                <li><a href="{{root_path}}/home/dashboard">Dashboard</a></li>
+                <li><a href="{{root_path}}/home/bmi">BMI Calculator</a></li>
+            </ul>
+            <div>
+                <a href="{{root_path}}/home/profile" class="prof-btn"><i class="fa-solid fa-user"></i>&nbsp&nbspProfile</a>
+            </div>
+        </nav>
+    </header>
+
+    
+
+
+
+    <div class="container">
+        <div class="card" style="--clr: #ee7314;">    
+            <div class="imgBx">
+                <video width="650px" controls height="290px" autoplay>
+                    <source src="/static/bicep curls.mp4" type="video/mp4">
+                </video>
+            </div>   
+            <div class="content">
+                <h2>Bicep Curls</h2>
+                <p>Consistently performing the bicep curl will help you build strength in the upper arm and learn to use your arm muscles correctly, bracing with your core muscles.</p>
+                <a href="{{root_path}}/home/exer?code=1">Start Exercise</a>
+            </div>   
+        </div>
+        <br><br><br><br><br>     
+        <div class="card" style="--clr: #ff3e7f;">      
+            <div class="imgBx">
+                <video width="650px" controls height="290px" autoplay>
+                    <source src="/static/shoulder press.mp4" type="video/mp4">
+                </video>
+            </div>   
+            <div class="content">
+                <h2>Shoulder Press</h2>
+                <p>Shoulder press targets your shoulders, triceps, and upper back muscles, providing a full upper body workout. It mainly increases the muscle mass, improved posture and shoulder strength & stability.</p>
+                <a href="{{root_path}}/home/exer?code=2">Start Exercise</a>
+            </div>        
+        </div>      
+        <br><br><br><br><br>   
+        <div class="card" style="--clr:rgba(36, 170, 219, 0.996);">        
+            <div class="imgBx">
+                <video width="650px" controls height="290px" autoplay>
+                    <source src="/static/squat.mp4" type="video/mp4">
+                </video>
+            </div>   
+            <div class="content">
+                <h2>Squat</h2>
+                <p>Squats are a functional exercise that can boost your calorie burn, help prevent injuries, strengthen your core, and improve your balance and posture.</p>
+                <a href="{{root_path}}/home/exer?code=3">Start Exercise</a>
+            </div>      
+        </div>        
+    </div>
+</body>
+</html>

@@ -8,7 +8,11 @@ urlpatterns = [
     path('exercise', views.returnExercisesPage, name="Exercise Page"),
     path('profile', views.returnProfilePage, name="Profile Page"),
     path('bmi', views.returnBMIPage, name="BMI Page"),
-    # path('dummy', opencv.Home, name="Dummy"),
-    path('exer', views.Exercises, name="Dummy")
+    path('exer', views.Exercise, name="Dummy"),
+    path('signout', views.SignOut, name="For Signout"),
+    path('change-password', views.changePassword, name="Update Password"),
+    path('bicep', views.bicepCurls, name="bicep-curls"),
+    path('shoulder', views.shoulderPress, name="shoulder-press"),
+    path('squat', views.squat, name="squat"),
 
 ]

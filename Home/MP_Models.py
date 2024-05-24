@@ -94,7 +94,7 @@ def bicepCurls(frame):
                                     mp_drawing.DrawingSpec(color=(245,117,66), thickness=2, circle_radius=2), 
                                     mp_drawing.DrawingSpec(color=(245,66,230), thickness=2, circle_radius=2) 
                                     ) 
-        return image, rcounter, lcounter
+        return cv.resize(image, (660,520),interpolation=cv.INTER_AREA), rcounter
 
 press_counter = 0
 press_stage = None
@@ -133,22 +133,23 @@ def shoulderPress(frame):
                 press_stage='down'
                 press_counter += 1
                 
-            cv.putText(image, str(elbow_angle), 
-                           tuple(np.multiply(Left_Shoulder, [640, 480]).astype(int)), 
-                           cv.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2, cv.LINE_AA
-                                )
+            # cv.putText(image, str(elbow_angle), 
+            #                tuple(np.multiply(Left_Shoulder, [640, 480]).astype(int)), 
+            #                cv.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2, cv.LINE_AA
+            #                     )
                        
         except:
             pass
         
         cv.rectangle(image, (0,0), (100,75), (0,0,0), -1)
+            
+            # Rep data
+        cv.putText(image, 'PRESS', (15,12), 
+                        cv.FONT_HERSHEY_SIMPLEX, 0.5, (255,255,255), 1, cv.LINE_AA)
+        cv.putText(image, str(press_counter), 
+                        (30,60), 
+                        cv.FONT_HERSHEY_SIMPLEX, 2, (255,255,255), 2, cv.LINE_AA)
         
-        # Rep data
-        # Render curl counter
-        # Setup status box
-        cv.rectangle(image, (0,0), (100,75), (0,0,0), -1)
-        cv.putText(image, 'press ' + str(press_counter), (240,30), 
-                           cv.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv.LINE_AA)
         
         
         # Render detections
@@ -157,7 +158,7 @@ def shoulderPress(frame):
                                 mp_drawing.DrawingSpec(color=(245,66,230), thickness=2, circle_radius=2) 
                                  )               
         
-        return image
+        return cv.resize(image, (660,520),interpolation=cv.INTER_AREA), press_counter
 
 
 squat_counter = 0
@@ -215,13 +216,13 @@ def squat(frame):
             pass
         
         cv.rectangle(image, (0,0), (100,75), (0,0,0), -1)
-        
-        # Rep data
-        # Render curl counter
-        # Setup status box
-        cv.rectangle(image, (0,0), (100,75), (0,0,0), -1)
-        cv.putText(image, 'squat ' + str(squat_counter), (490,30), 
-                           cv.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv.LINE_AA)
+            
+            # Rep data
+        cv.putText(image, 'SQUAT', (15,12), 
+                        cv.FONT_HERSHEY_SIMPLEX, 0.5, (255,255,255), 1, cv.LINE_AA)
+        cv.putText(image, str(squat), 
+                        (30,60), 
+                        cv.FONT_HERSHEY_SIMPLEX, 2, (255,255,255), 2, cv.LINE_AA)
         
         
         # Render detections
@@ -229,7 +230,7 @@ def squat(frame):
                                 mp_drawing.DrawingSpec(color=(245,117,66), thickness=2, circle_radius=2), 
                                 mp_drawing.DrawingSpec(color=(245,66,230), thickness=2, circle_radius=2) 
                                  )      
-        return image
+        return cv.resize(image, (660,520),interpolation=cv.INTER_AREA), squat_counter
 
              
      
