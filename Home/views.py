@@ -94,8 +94,6 @@ def shoulderPress(request):
     obj1.say("two")
     obj1.say("one")
     obj1.say("Go")
-
-
     obj1.runAndWait()
     
     try:

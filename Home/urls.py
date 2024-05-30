@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from . import opencv
+
 
 urlpatterns = [
     path('', views.returnHomePage, name="Home Page"),
