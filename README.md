@@ -41,12 +41,16 @@ pip install -r requirements.txt
 python manage.py runserver
 ```
 
-<div align="center>
-<h3 style="text-align:center;">We hope you enjoy using the web application!!</h3>
+<div align="center">
+  <h3>We hope you enjoy using the web application!!</h3>
 
-<h3 style="text-align:center;"><u>Development Team</u></h3>
-<h4 style="text-align:center;">Karthik Rao P - karthikraopadala@gmail.com</h4>
-<h4 style="text-align:center;">Charitha Reddy V - charithareddyvemula@gmail.com</h4>
-<h4 style="text-align:center;">Sahithi Reddy P - sahithireddypasham29@gmail.com</h4>
-<h4 style="text-align:center;">Venu Gopal B - bobbadivenugopal@gmail.com</h4>
+<h3 ><u>Development Team</u></h3>
+<h4 >Karthik Rao P - karthikraopadala@gmail.com</h4>
+<h4 >Charitha Reddy V - charithareddyvemula@gmail.com</h4>
+<h4 >Sahithi Reddy P - sahithireddypasham29@gmail.com</h4>
+<h4 >Venu Gopal B - bobbadivenugopal@gmail.com</h4>
+
+
+</div>
+
 </div>
