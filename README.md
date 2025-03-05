@@ -1,55 +1,49 @@
-**What is Fitness Dev-Love-Per?**
+<div align="center">
+  <a href="#"><picture>
+    <img alt="Fitness DevLovePer Logo" src="https://drive.google.com/thumbnail?id=1zjwG8pG1dTsOz0pnoAnjFGDGu9kXftoh" height="110" style="max-width: 100%;">
+  </picture></a>
 
-Fitness Dev-Love-Per is a web application developed using Django, a python based frame work for web applications. This web applications falls under "Fitness and Sports" Theme and first version was developed in February 
-2023
+### Fall in Love with the fitness!!
 
-**What problem is it solving?**
+![](https://i.ibb.co/sJ7RhGG/image-41.png)
 
-The Concise problem statement title is "AI Assisted Virtual Fitness Trainer".
-In this modern era, users expect almost every service in online mode. Fitness Training is one among them. Keeping the demand in mind, many mobile and web applications have been developed which usually gives information about exercises like Benefits (Why to do) , List (What to do) and Procedure (How to do). All these applications are only information oriented and use simplex mode of communication (One way),
-that is, they give guidance about exercises but do not verify whether the user is actually doing them or not. This inability to track user actions when guidance is provided is resulting in poor outcomes.
-This problem is solved by this web application
+</div>
 
-**What is proposed solution?**
+# Background
+In this modern world, users expect almost every service in online. Fitness assistance is one among them. Considering the huge demand and business scope, many mobile and web applications were developed. All these existing systems are just informative, that is, they just give information about exercises, but do not track whether user is really performing them or not. This results in poor outcomes
 
-Develop a web application which not only provides information about exercises but also track user movements to determine whether the user is exercising correctly or not by estimating pose of the user. This is achieved through integration of Camera with web application powered by AI pose estimation models.
-This approach enables Duplex communication (Two way) between the end user and web application that is, an exercise is considered as completed only if user performs it correctly.
-Some of our web application features are
+# What we did?
+We developed a web application, which not only gives information about various exercises but also track user movements to identify whether is really performing exercise or not using pose detection modules. This feature enforces users to perform exercise for real, yielding best results from exercise
 
-Security – facilitates three traits of cyber security: Confidentiality (Encryption), Integrity (Authentication and session manager), Availability
+# Features
+- Robust authentication mechanism with session management
+- Gate keepers to prevent unauthorized access
+- Support for 3 exercises with an animated video, guiding users how to perform exercise
+- User friendly Interface
+- Body Mass Index calculator
+- Chatbot to clarify queries
 
-Pose detection – estimates pose of the user to determine whether exercise is performed correctly or not
+# How to run the project ?
+To run the project in your local system, follow the below steps\
+\
+**1. Clone repository -** to clone the repository, execute the following command in your local system
+```
+git clone https://github.com/KARTHIK-RAO-4572/Fitness_Devloveper.git
+```
+\
+**2. Install dependencies -** Navigate to the cloned folder and install dependencies required by executing the following command
+```
+pip install -r requirements.txt
+```
+\
+**3. Run the project -** Now, execute the following command and visit [http://localhost:8000](http://localhost:8000)
+```
+python manage.py runserver
+```
+<h3 style="text-align:center;">We hope you enjoy using the web application!!</h3>
 
-Chat Bot – a chat bot which assists users with any queries they may have
-
-Gate Keepers – to prevent unauthorized access and CSRF token attacks
-
-Voice Assistance – guidance on exercises 
-
-**Components of Tech Stack?**
-
-Django – Python based web application framework
-
-HTML, CSS, JS – Front end development
-
-Python – Programming Language for backend
-
-Media Pipe – Python Library for pose detection
-
-Open CV – Python Library for camera integration
-
-Smtplib – Module for Sending Emails
-
-Pyttsx3 – Module for text to speech conversion
-
-Nginx, Gunicorn – Request routing after deployment
-
-Google Cloud Platform (GCP) – Virtual instance provider for deployment
-
-**How to Install?**
-
-1. Click on "Code" button
-2. Download Zip file of project
-3. Unzip the project contents
-4. Install all the requirements mentioned in "requirements.txt" file
-5. Run the project using "python manage.py runserver" command
+<h3 style="text-align:center;"><u>Development Team</u></h3>
+<h4 style="text-align:center;">Karthik Rao P - karthikraopadala@gmail.com</h4>
+<h4 style="text-align:center;">Charitha Reddy V - charithareddyvemula@gmail.com</h4>
+<h4 style="text-align:center;">Sahithi Reddy P - sahithireddypasham29@gmail.com</h4>
+<h4 style="text-align:center;">Venu Gopal B - bobbadivenugopal@gmail.com</h4>
