@@ -40,6 +40,8 @@ pip install -r requirements.txt
 ```
 python manage.py runserver
 ```
+
+<div align="center>
 <h3 style="text-align:center;">We hope you enjoy using the web application!!</h3>
 
 <h3 style="text-align:center;"><u>Development Team</u></h3>
@@ -47,3 +49,4 @@ python manage.py runserver
 <h4 style="text-align:center;">Charitha Reddy V - charithareddyvemula@gmail.com</h4>
 <h4 style="text-align:center;">Sahithi Reddy P - sahithireddypasham29@gmail.com</h4>
 <h4 style="text-align:center;">Venu Gopal B - bobbadivenugopal@gmail.com</h4>
+</div>
