@@ -1,6 +1,6 @@
 <div align="center">
   <a href="#"><picture>
-    <img alt="Fitness DevLovePer Logo" src="https://drive.google.com/thumbnail?id=1zjwG8pG1dTsOz0pnoAnjFGDGu9kXftoh" height="110" style="max-width: 100%;">
+    <img alt="Fitness DevLovePer Logo" src="https://github.com/KARTHIK-RAO-4572/GitHub-Images/blob/main/Fitness_DevLovePer_GitHub_Logo.png?raw=true" height="110" style="max-width: 100%;">
   </picture></a>
 
 ### Fall in Love with the fitness!!
